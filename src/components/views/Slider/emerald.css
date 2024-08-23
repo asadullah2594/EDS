@@ -1,0 +1,142 @@
+.animatedSwipper {
+  margin-top: 2rem;
+}
+.animatedSwipper .mySwiper {
+  max-height: 10rem;
+  height: 100%;
+}
+
+.animatedSwipper .swiper-pagination-bullets {
+  right: unset;
+  left: 0;
+  top: 25%;
+}
+.animatedSwipper .swiper-pagination-bullet-active {
+  background-color: #5c6b82 !important;
+  height: 1.125rem;
+  border-radius: 6.05156rem;
+}
+.animatedSwipper .swiper-pagination-bullet {
+  background-color: #e4e6ec;
+  opacity: unset;
+}
+
+.slider-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 1s ease-in-out;
+  height: 100%;
+  /* margin-left: 1.87rem; */
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  /* height: 300px; */
+  position: absolute;
+  top: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide-title,
+.slide-content {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+.title-appear {
+  animation: titleAppear 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes titleAppear {
+  from {
+    opacity: 0;
+    transform: translateZ(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+.navigation-dots {
+  display: flex;
+  /* position: absolute; */
+
+  /* top: 15%; */
+  /* transform: translateY(-50%); */
+  gap: 0.38rem;
+  z-index: 1000;
+}
+
+.dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, height 0.3s ease;
+}
+
+.dot.active {
+  width: 1.125rem;
+  background-color: white;
+  /* height: 15px; */
+  border-radius: 6.05156rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .slider-container {
+    height: 100px;
+    margin-top: 1.5rem;
+  }
+  .navigation-dots {
+    top: 33%;
+  }
+  .slider-wrapper {
+    /* margin-left: 0rem; */
+    display: flex;
+    align-items: center;
+  }
+}
