@@ -8,6 +8,7 @@ interface ButtonProps {
   onClick?: () => void;
   bg?: string;
   className?: string;
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,6 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   bg,
   className,
+  disabled,
 }) => {
   const baseStyle =
     "px-5 py-3 max-h-[3rem] rounded-lg flex items-center  font-medium leading-4";
@@ -31,6 +33,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       className={`${baseStyle} ${variantStyle} ${className}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {iconPosition === "start" && icon && <span className="mr-3">{icon}</span>}
       {children}

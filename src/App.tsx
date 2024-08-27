@@ -1,21 +1,26 @@
-import AlmostThere from "./components/views/AlmostThere";
-import Footer from "./components/views/Footer";
 import Header from "./components/views/Header";
-import Login from "./components/views/login";
-import SetupProfile from "./components/views/SetupProfile";
-import SignUpContaier from "./containers/SignUpContainer";
+import NotFound from "./pages/NotFound";
+import { Routes as appRoutes } from "./Routes/Routes";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      {/* <Header /> */}
-      {/* <SignUp /> */}
-      {/* <SetupProfile /> */}
-      {/* <Footer /> */}
-      {/* <Login /> */}
-      <AlmostThere />
+      <Header />
+      <Routes>
+        {appRoutes.map((route) => (
+          <Route
+            key={route.key}
+            path={route.path}
+            element={<route.component />}
+          />
+        ))}
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
     </>
   );
 }
 
-export default App;
+export function WrappedApp() {
+  return <App />;
+}

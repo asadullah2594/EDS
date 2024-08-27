@@ -1,8 +1,15 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
 import "./index.css";
 import { pdfjs } from "react-pdf";
+import { Provider } from "react-redux";
+import store, { persistor } from "./redux/store/index.js";
+import { BrowserRouter } from "react-router-dom";
+import ErrorBoundary from "./utils/ErrorBoundary.js";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { PersistGate } from "redux-persist/integration/react";
+import { WrappedApp } from "./App";
+import React from "react";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -10,7 +17,16 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ErrorBoundary>
+          <PersistGate loading={null} persistor={persistor}>
+            <WrappedApp />
+          </PersistGate>
+        </ErrorBoundary>
+        <ToastContainer />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
 );

@@ -4,21 +4,38 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import siteLogo from "../../assets/siteLogo.svg";
+import { Bell, DownArrow } from "../../assets/svg";
+import Avatar from "../../assets/avatar.png";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ASSETLISTING } from "src/constants";
+
 // import { ArrowRightIcon } from "../../assets/svg";
 // import Button from "../common/Button";
 
 const menuItems = [
-  { id: 1, title: "Soutions", href: "#solutions" },
-  { id: 2, title: "Features", href: "#features" },
-  { id: 3, title: "Industries", href: "#industries" },
-  { id: 4, title: "Why EDS", href: "#eds" },
+  { id: 1, title: "Dashboard", href: "#solutions" },
+  { id: 2, title: "Assets", href: ASSETLISTING },
+  { id: 3, title: "Maintenance", href: "#industries" },
+  { id: 4, title: "Site Overview", href: "#eds" },
+  { id: 4, title: "Resource Oversight", href: "#eds" },
+  { id: 4, title: "Purchase Orders", href: "#eds" },
+  { id: 4, title: "Reports", href: "#eds" },
 ];
 
 const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <Disclosure
       as="nav"
-      className=" border-b border-gray-50 sticky top-0  z-10 px-6 py-4 bg-[#f8f9fa]"
+      className=" border-b  border-[#E5E7EB] sticky top-0  z-10 px-6 py-4 bg-[#f8f9fa] "
     >
       <div>
         <div className="flex  justify-between">
@@ -29,9 +46,15 @@ const Header = () => {
             <div className="hidden sm:gap-2 sm:flex ">
               {menuItems.map((item) => (
                 <a
-                  href={item.href}
+                  onClick={() => {
+                    navigate(item.href);
+                  }}
                   key={item.id}
-                  className="inline-flex items-center p-3 text-sm font-normal font-inter text-gray-600  border-b-2 border-transparent hover:border-green-500 transition-all duration-300"
+                  className={`inline-flex items-center p-3 text-1 font-normal  text-gray-500  border-b-2 border-transparent hover:bg-primary-value hover:text-white-value rounded-lg transition-all duration-300 cursor-pointer ${
+                    location.pathname == ASSETLISTING &&
+                    item.title == "Assets" &&
+                    "!bg-primary-value text-white-value"
+                  }`}
                 >
                   {item.title}
                 </a>
@@ -39,10 +62,54 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <div>bell</div>
-            <div>bell</div>
-            <div>bell</div>
+          <div className="hidden sm:ml-6 sm:flex sm:items-center gap-4">
+            <div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <div>
+                    <Bell className="w-9 h-9" />
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="end"
+                  className="!bg-white-value !text-black-value  !ring-0 !border-0"
+                >
+                  <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
+                    View Details
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
+                    Edit
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
+                    Archive
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            <img src={Avatar} />
+            <div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <div>
+                    <DownArrow />
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="end"
+                  className="!bg-white-value !text-black-value  !ring-0 !border-0"
+                >
+                  <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
+                    View Details
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
+                    Edit
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
+                    Archive
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
 
           {/* <div className="-mr-2 flex items-center sm:hidden">

@@ -1,4 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-  
+
+/* .custom-select__input {
+  min-width: 270px !important;
+  background-color: red !important
+  ;
+} */
+.custom-select__multi-value {
+  min-width: unset !important;
+}
+.custom-select__value-container {
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+}
+.custom-select__input-container {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  input:focus {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+.custom-select__control {
+  border-color: #d9e2f2 !important;
+  height: 40px;
+  border-radius: 8px !important;
+  background-color: #b4bbc6;
+}

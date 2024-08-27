@@ -11,7 +11,7 @@ import { useState } from "react";
 import photoPlaceholder from "../../assets/photoplaceholder.png";
 
 const SetupProfile = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const handleImageChange = (e: any) => {
@@ -326,6 +326,13 @@ const SetupProfile = () => {
             <Button
               variant="default"
               children="Next"
+              onClick={() => {
+                if (step === 3) {
+                  setStep(1);
+                  return;
+                }
+                setStep(step + 1);
+              }}
               className="flex justify-center items-center gap-2 px-[18px] py-[10px] self-stretch rounded-lg bg-primary-value mt-5  !font-sans font-inter-3 text-2 boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)' text-white-value hover:opacity-75 w-full "
             />
           </div>

@@ -10,9 +10,16 @@ export const theme = {
     },
   },
   extend: {
+    popover: {
+      DEFAULT: "hsl(var(--popover))",
+      foreground: "hsl(var(--popover-foreground))",
+    },
     colors: {
       primary: Object.fromEntries(
         Object.entries(token.colors.primary).map(([key, value]) => [key, value])
+      ),
+      orange: Object.fromEntries(
+        Object.entries(token.colors.orange).map(([key, value]) => [key, value])
       ),
       grey: Object.fromEntries(
         Object.entries(token.colors.gray).map(([key, value]) => [key, value])
@@ -22,6 +29,12 @@ export const theme = {
       ),
       white: Object.fromEntries(
         Object.entries(token.colors.base.white).map(([key, value]) => [
+          key,
+          value,
+        ])
+      ),
+      black: Object.fromEntries(
+        Object.entries(token.colors.base.black).map(([key, value]) => [
           key,
           value,
         ])
@@ -76,12 +89,12 @@ export const theme = {
         value.value,
       ])
     ),
-    spacing: Object.fromEntries(
-      Object.entries(token.letterSpacing).map(([key, value]) => [
-        key,
-        value.value,
-      ])
-    ),
+    // spacing: Object.fromEntries(
+    //   Object.entries(token.letterSpacing).map(([key, value]) => [
+    //     key,
+    //     value.value,
+    //   ])
+    // ),
     lineHeight: Object.fromEntries(
       Object.entries(token.lineHeights).map(([key, value]) => [
         key,
