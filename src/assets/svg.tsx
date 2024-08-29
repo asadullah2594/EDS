@@ -168,7 +168,7 @@ export const UploadIcon = () => {
     </svg>
   );
 };
-export const QRIcon = () => {
+export const QRIcon = ({ className }: { className?: any }) => {
   return (
     <svg
       width="20"
@@ -176,6 +176,7 @@ export const QRIcon = () => {
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <rect
         x="3.33203"
@@ -276,7 +277,7 @@ export const QRIcon = () => {
     </svg>
   );
 };
-export const PlusIcon = () => {
+export const PlusIcon = ({ className }: { className?: any }) => {
   return (
     <svg
       width="20"
@@ -284,6 +285,7 @@ export const PlusIcon = () => {
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         d="M9.9987 4.1665V15.8332"
@@ -435,6 +437,68 @@ export const DownArrow = ({ className }: { className?: any }) => {
         d="M4 6L8 10L12 6"
         stroke="#546176"
         stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const EditIcon = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M7.4987 5.8335H4.9987C4.07822 5.8335 3.33203 6.57969 3.33203 7.50016V15.0002C3.33203 15.9206 4.07822 16.6668 4.9987 16.6668H12.4987C13.4192 16.6668 14.1654 15.9206 14.1654 15.0002V12.5002"
+        stroke="#5C6B82"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M7.5 12.5H10L17.0833 5.41669C17.7737 4.72634 17.7737 3.60705 17.0833 2.91669C16.393 2.22634 15.2737 2.22634 14.5833 2.91669L7.5 10V12.5"
+        stroke="#5C6B82"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M13.332 4.1665L15.832 6.6665"
+        stroke="#5C6B82"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const ArrowButton = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <rect width="32" height="32" rx="12" fill="#EFF0F3" />
+      <path
+        d="M19.3307 12.667L12.6641 19.3337"
+        stroke="#5C6B82"
+        stroke-width="0.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M13.3359 12.667H19.3359V18.667"
+        stroke="#5C6B82"
+        stroke-width="1.2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />

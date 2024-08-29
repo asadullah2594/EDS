@@ -58,7 +58,7 @@ export default function Drawer({ open, setOpen }: { open: any; setOpen: any }) {
       <div className="fixed inset-0" />
 
       <div className="fixed inset-0 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden bg-[#0000004d]">
           <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16 ">
             <DialogPanel
               transition

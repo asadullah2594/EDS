@@ -4,7 +4,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import siteLogo from "../../assets/siteLogo.svg";
-import { Bell, DownArrow } from "../../assets/svg";
+import { Bell, DownArrow, QRIcon } from "../../assets/svg";
 import Avatar from "../../assets/avatar.png";
 import {
   DropdownMenu,
@@ -14,6 +14,7 @@ import {
 } from "../ui/dropdown-menu";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ASSETLISTING } from "src/constants";
+import { Bars2Icon, XMarkIcon } from "@heroicons/react/20/solid";
 
 // import { ArrowRightIcon } from "../../assets/svg";
 // import Button from "../common/Button";
@@ -43,7 +44,7 @@ const Header = () => {
             <img src={siteLogo} alt="site-logo" />
           </div>
           <div className="flex">
-            <div className="hidden sm:gap-2 sm:flex ">
+            <div className="hidden md:gap-2 md:flex ">
               {menuItems.map((item) => (
                 <a
                   onClick={() => {
@@ -51,7 +52,7 @@ const Header = () => {
                   }}
                   key={item.id}
                   className={`inline-flex items-center p-3 text-1 font-normal  text-gray-500  border-b-2 border-transparent hover:bg-primary-value hover:text-white-value rounded-lg transition-all duration-300 cursor-pointer ${
-                    location.pathname == ASSETLISTING &&
+                    location.pathname.includes("assets") &&
                     item.title == "Assets" &&
                     "!bg-primary-value text-white-value"
                   }`}
@@ -62,7 +63,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="hidden sm:ml-6 sm:flex sm:items-center gap-4">
+          <div className="hidden md:ml-6 md:flex md:items-center gap-4">
             <div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -112,25 +113,29 @@ const Header = () => {
             </div>
           </div>
 
-          {/* <div className="-mr-2 flex items-center sm:hidden">
-       
+          <div className="-mr-2 flex items-center md:hidden">
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none bg-white ">
               <span className="absolute -inset-0.5" />
               <span className="sr-only font-inter">Open main menu</span>
-              <Bars3Icon
+              {/* <QRIcon
+                aria-hidden="true"
+                className="block h-6 w-6 group-data-[open]:hidden"
+              /> */}
+              <Bars2Icon
                 aria-hidden="true"
                 className="block h-6 w-6 group-data-[open]:hidden"
               />
+
               <XMarkIcon
                 aria-hidden="true"
                 className="hidden h-6 w-6 group-data-[open]:block"
               />
             </DisclosureButton>
-          </div> */}
+          </div>
         </div>
       </div>
 
-      <DisclosurePanel className="sm:hidden">
+      <DisclosurePanel className="md:hidden">
         <div className="space-y-1 pb-3 pt-2">
           {menuItems.map((item) => (
             <DisclosureButton

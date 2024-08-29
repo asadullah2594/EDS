@@ -84,34 +84,42 @@ export const columns: ColumnDef<any>[] = [
     accessorKey: "name",
     header: "Asset Name",
     cell: ({ row }) => (
-      <div className="capitalize flex items-center gap-3">
+      <div className="capitalize flex items-center gap-3 flex-wrap">
         {" "}
         <img src={row.original.image} />
-        {row.getValue("name")}
+        <span className="whitespace-nowrap">{row.getValue("name")}</span>
       </div>
     ),
   },
   {
     accessorKey: "id",
     header: "Asset ID",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("id")}</div>,
+    cell: ({ row }) => (
+      <div className="capitalize whitespace-nowrap">{row.getValue("id")}</div>
+    ),
   },
   {
     accessorKey: "category",
     header: "Category",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("category")}</div>
+      <div className="capitalize whitespace-nowrap">
+        {row.getValue("category")}
+      </div>
     ),
   },
   {
     accessorKey: "site",
     header: "Site",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("site")}</div>,
+    cell: ({ row }) => (
+      <div className="capitalize whitespace-nowrap">{row.getValue("site")}</div>
+    ),
   },
   {
     accessorKey: "area",
     header: "Area",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("area")}</div>,
+    cell: ({ row }) => (
+      <div className="capitalize whitespace-nowrap">{row.getValue("area")}</div>
+    ),
   },
   {
     accessorKey: "assignTo",
@@ -128,7 +136,9 @@ export const columns: ColumnDef<any>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="lowercase">{row.getValue("assignTo")}</div>
+      <div className="lowercase whitespace-nowrap">
+        {row.getValue("assignTo")}
+      </div>
     ),
   },
   {
@@ -219,7 +229,7 @@ const AssetsListing = () => {
   return (
     <>
       <Drawer open={open} setOpen={setOpen} />
-      <div className=" bg-bluee-50-value h-[100vh]">
+      <div className=" bg-bluee-50-value ">
         <div className="px-6 py-5">
           <div className="flex justify-between items-center">
             <div>
@@ -253,44 +263,47 @@ const AssetsListing = () => {
           </div>
         </div>
         <hr></hr>
-        <div className="flex justify-between px-6 py-4 items-center">
-          <>
-            <div className="relative mt-2 rounded-md shadow-sm max-w-[310px] w-full">
-              <div className="pointer-events-none absolute inset-y-[0] left-[0] flex items-center pl-3">
-                <SearchIcon
-                  aria-hidden="true"
-                  className="h-5 w-5 text-gray-400"
+        <div className="h-[calc(100vh-166px)]">
+          <div className="flex justify-between px-6 py-4 items-center">
+            <>
+              <div className="relative mt-2 rounded-md shadow-sm max-w-[310px] w-full">
+                <div className="pointer-events-none absolute inset-y-[0] left-[0] flex items-center pl-3">
+                  <SearchIcon
+                    aria-hidden="true"
+                    className="h-5 w-5 text-gray-400"
+                  />
+                </div>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Search"
+                  className="   block w-full rounded-xl border-0 py-1.5 pl-10 text-gray-900  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-value sm:text-sm sm:leading-6 bg-grey-50-value "
                 />
               </div>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Search"
-                className="   block w-full rounded-xl border-0 py-1.5 pl-10 text-gray-900  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-value sm:text-sm sm:leading-6 bg-grey-50-value "
-              />
-            </div>
-          </>
+            </>
 
-          <div className="flex gap-3 text-grey-500-value text-1 font-medium cursor-pointer">
-            <div
-              className="flex items-center"
-              onClick={() => {
-                setOpen(true);
-              }}
-            >
-              <Funnel />
-              &nbsp;Filters
-            </div>
-            <div className="flex items-center">
-              {" "}
-              <Listing />
-              &nbsp;Archive
+            <div className="flex gap-3 text-grey-500-value text-1 font-medium cursor-pointer">
+              <div
+                className="flex items-center"
+                onClick={() => {
+                  setOpen(true);
+                }}
+              >
+                <Funnel />
+                &nbsp;Filters
+              </div>
+              <div className="flex items-center">
+                {" "}
+                <Listing />
+                &nbsp;Archive
+              </div>
             </div>
           </div>
-        </div>
-        <div className="px-6">
-          <DataTable columns={columns} data={data} />
+
+          <div className="px-6">
+            <DataTable columns={columns} data={data} />
+          </div>
         </div>
       </div>
     </>

@@ -7,6 +7,9 @@
   background-color: red !important
   ;
 } */
+body {
+  background-color: #f8f9fa;
+}
 .custom-select__multi-value {
   min-width: unset !important;
 }

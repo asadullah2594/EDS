@@ -1,6 +1,8 @@
 import { FC } from "react";
+import AssetsDetails from "src/components/views/AssetDetails";
 import AssetsListing from "src/components/views/AssetsListing";
 import SignUp from "src/components/views/SignUp";
+import { ASSET_DETAILS, ASSETLISTING } from "src/constants";
 
 export interface IRoute {
   key: string;
@@ -13,7 +15,7 @@ export interface IRoute {
 export const Routes: Array<IRoute> = [
   {
     key: "home-route",
-    title: "SignUo",
+    title: "SignUp",
     path: "/",
     enabled: true,
     component: SignUp,
@@ -21,9 +23,16 @@ export const Routes: Array<IRoute> = [
   {
     key: "home-route",
     title: "Asset Listing",
-    path: "/assetlisting",
+    path: ASSETLISTING,
     enabled: true,
     component: AssetsListing,
+  },
+  {
+    key: "home-route",
+    title: "Asset Details",
+    path: ASSET_DETAILS,
+    enabled: true,
+    component: AssetsDetails,
   },
   // {
   //   key: "home-route",
