@@ -56,7 +56,7 @@ export function DataTable({ columns, data }: { columns: any; data: any }) {
 
   return (
     <div className="w-full">
-      <div className="rounded-lgs bg-white-value">
+      <div className="rounded-lg  bg-white-value">
         <Table>
           <TableHeader className="border-t-0">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -115,47 +115,46 @@ export function DataTable({ columns, data }: { columns: any; data: any }) {
             )}
           </TableBody>
         </Table>
-      </div>
-      <div className="flex items-center justify-center gap-7 border-t border-gray-200 px-4 sm:px-0">
-        <div className="-mt-px flex  ">
-          <a
-            href="#"
-            className="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-          >
-            <ArrowLongLeftIcon
-              aria-hidden="true"
-              className="mr-3 h-5 w-5 text-gray-400"
-            />
-            Previous
-          </a>
-        </div>
-        <div className="hidden md:-mt-px md:flex">
-          <a
-            href="#"
-            className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-          >
-            1
-          </a>
-          {/* Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" */}
-          <div className="px-4 pt-4">
+        <div className="flex items-center justify-center gap-7 pb-3 px-4 sm:px-0">
+          <div className="-mt-px flex  ">
             <a
               href="#"
-              aria-current="page"
-              className="h-7 w-7 flex justify-center items-center border border-primary-value p-4 text-sm font-medium text-primary-value rounded-full "
+              className="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
             >
-              2
+              <ArrowLongLeftIcon
+                aria-hidden="true"
+                className="mr-3 h-5 w-5 text-gray-400"
+              />
+              Previous
             </a>
           </div>
-          <a
-            href="#"
-            className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-          >
-            3
-          </a>
-          {/* <span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
+          <div className="hidden md:-mt-px md:flex">
+            <a
+              href="#"
+              className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+            >
+              1
+            </a>
+            {/* Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" */}
+            <div className="px-4 pt-4">
+              <a
+                href="#"
+                aria-current="page"
+                className="h-7 w-7 flex justify-center items-center border border-primary-value p-4 text-sm font-medium text-primary-value rounded-full "
+              >
+                2
+              </a>
+            </div>
+            <a
+              href="#"
+              className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+            >
+              3
+            </a>
+            {/* <span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500">
             ...
           </span> */}
-          {/* <a
+            {/* <a
             href="#"
             className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
           >
@@ -173,20 +172,22 @@ export function DataTable({ columns, data }: { columns: any; data: any }) {
           >
             10
           </a> */}
-        </div>
-        <div className="-mt-px flex   justify-end">
-          <a
-            href="#"
-            className="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-          >
-            Next
-            <ArrowLongRightIcon
-              aria-hidden="true"
-              className="ml-3 h-5 w-5 text-gray-400"
-            />
-          </a>
+          </div>
+          <div className="-mt-px flex   justify-end">
+            <a
+              href="#"
+              className="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+            >
+              Next
+              <ArrowLongRightIcon
+                aria-hidden="true"
+                className="ml-3 h-5 w-5 text-gray-400"
+              />
+            </a>
+          </div>
         </div>
       </div>
+
       {/* <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}

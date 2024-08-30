@@ -1,8 +1,15 @@
 import { FC } from "react";
+import AddTeamMembers from "src/components/views/AddTeamMembers";
 import AssetsDetails from "src/components/views/AssetDetails";
 import AssetsListing from "src/components/views/AssetsListing";
+import CreateNewSite from "src/components/views/CreateNewSite";
 import SignUp from "src/components/views/SignUp";
-import { ASSET_DETAILS, ASSETLISTING } from "src/constants";
+import {
+  ADD_TEAM_MEMBERS,
+  ASSET_DETAILS,
+  ASSETLISTING,
+  CREATE_NEW_SITE,
+} from "src/constants";
 
 export interface IRoute {
   key: string;
@@ -33,6 +40,27 @@ export const Routes: Array<IRoute> = [
     path: ASSET_DETAILS,
     enabled: true,
     component: AssetsDetails,
+  },
+  {
+    key: "home-route",
+    title: "Asset Details",
+    path: ASSET_DETAILS,
+    enabled: true,
+    component: AssetsDetails,
+  },
+  {
+    key: "home-route",
+    title: "Asset Details",
+    path: CREATE_NEW_SITE,
+    enabled: true,
+    component: CreateNewSite,
+  },
+  {
+    key: "home-route",
+    title: "Asset Details",
+    path: ADD_TEAM_MEMBERS,
+    enabled: true,
+    component: AddTeamMembers,
   },
   // {
   //   key: "home-route",

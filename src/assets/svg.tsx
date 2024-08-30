@@ -505,3 +505,29 @@ export const ArrowButton = ({ className }: { className?: any }) => {
     </svg>
   );
 };
+export const PlusButton = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <rect width="32" height="32" rx="12" fill="#EFF0F3" />
+      <path
+        d="M15.9993 11.3334V20.6667"
+        stroke="#5C6B82"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M11.334 16H20.6673"
+        stroke="#5C6B82"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
