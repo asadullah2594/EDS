@@ -531,3 +531,69 @@ export const PlusButton = ({ className }: { className?: any }) => {
     </svg>
   );
 };
+export const PathIcon = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <ellipse
+        cx="7"
+        cy="6.41699"
+        rx="1.75"
+        ry="1.75"
+        stroke="#414C5C"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M10.3025 9.71641L7.82744 12.1915C7.37192 12.6466 6.63387 12.6466 6.17835 12.1915L3.70269 9.71641C1.88031 7.89394 1.88036 4.93922 3.7028 3.11681C5.52524 1.2944 8.47997 1.2944 10.3024 3.11681C12.1248 4.93922 12.1249 7.89394 10.3025 9.71641V9.71641Z"
+        stroke="#414C5C"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const UserPlus = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <ellipse
+        cx="7.5013"
+        cy="5.83333"
+        rx="3.33333"
+        ry="3.33333"
+        stroke="white"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M2.5 17.5V15.8333C2.5 13.9924 3.99238 12.5 5.83333 12.5H9.16667C11.0076 12.5 12.5 13.9924 12.5 15.8333V17.5"
+        stroke="white"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M13.332 8.41675C12.9178 8.41675 12.582 8.75253 12.582 9.16675C12.582 9.58096 12.9178 9.91675 13.332 9.91675V8.41675ZM18.332 9.91675C18.7462 9.91675 19.082 9.58096 19.082 9.16675C19.082 8.75253 18.7462 8.41675 18.332 8.41675V9.91675ZM16.582 6.66675C16.582 6.25253 16.2462 5.91675 15.832 5.91675C15.4178 5.91675 15.082 6.25253 15.082 6.66675H16.582ZM15.082 11.6667C15.082 12.081 15.4178 12.4167 15.832 12.4167C16.2462 12.4167 16.582 12.081 16.582 11.6667H15.082ZM13.332 9.91675H18.332V8.41675H13.332V9.91675ZM15.082 6.66675V11.6667H16.582V6.66675H15.082Z"
+        fill="white"
+      />
+    </svg>
+  );
+};
