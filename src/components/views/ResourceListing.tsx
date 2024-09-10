@@ -20,211 +20,56 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import placeHolder from "../../assets/placeholderImage.png";
+import placeHolder from "../../assets/userplaceholder.png";
 import { ColumnDef } from "@tanstack/react-table";
 import { useState } from "react";
 import Drawer from "./Drawer";
 import UserInviteModal from "../common/UserInviteModal";
+import { useNavigate } from "react-router-dom";
+import {
+  ADD_TEAM_MEMBERS,
+  ADD_VENDER,
+  RESOURCE_DETAILS,
+  VENDER_DETAILS,
+} from "src/constants";
 
 const data: any[] = [
   {
     id: "m5gr84i9",
-    name: ` Macbook Pro 2020`,
+    name: ` Larry Roin`,
+
+    email: `larry.roin@larryroin.com`,
     status: "Available",
     category: "Electronics",
-    site: "4140 Parker Rd. Allentown, New Mexico 31134",
+    role: "Lab Assitant",
     area: "W. hall 2nd Floor",
     assignTo: "Eleanor Pena",
     image: placeHolder,
   },
   {
     id: "m5gr84i3",
-    name: "Macbook Pro 2020",
+    name: "Floyd Miles",
     status: "Available",
+    email: `larry.roin@larryroin.com`,
     category: "Electronics",
-    site: "4140 Parker Rd. Allentown, New Mexico 31134",
+    role: "Lab Assitant",
     area: "W. hall 2nd Floor",
     assignTo: "Eleanor Pena",
     image: placeHolder,
   },
   {
     id: "m5gr84i55",
-    name: "Macbook Pro 2020",
+    name: "Brooklyn Simmons",
     status: "Out of Order",
     category: "Electronics",
-    site: "4140 Parker Rd. Allentown, New Mexico 31134",
+    email: `larry.roin@larryroin.com`,
+    role: "Lab Assitant",
     area: "W. hall 2nd Floor",
     assignTo: "Eleanor Pena",
     image: placeHolder,
   },
 ];
 
-export const columns: ColumnDef<any>[] = [
-  // {
-  //   id: "select",
-  //   header: ({ table }) => (
-  //     <Checkbox
-  //       checked={
-  //         table.getIsAllPageRowsSelected() ||
-  //         (table.getIsSomePageRowsSelected() && "indeterminate")
-  //       }
-  //       onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-  //       aria-label="Select all"
-  //     />
-  //   ),
-  //   cell: ({ row }) => (
-  //     <Checkbox
-  //       checked={row.getIsSelected()}
-  //       onCheckedChange={(value) => row.toggleSelected(!!value)}
-  //       aria-label="Select row"
-  //     />
-  //   ),
-  //   enableSorting: false,
-  //   enableHiding: false,
-  // },
-  {
-    accessorKey: "name",
-    header: "Asset Name",
-    cell: ({ row }) => (
-      <div className="capitalize flex items-center gap-3 flex-wrap">
-        {" "}
-        <img src={row.original.image} />
-        <span className="whitespace-nowrap">{row.getValue("name")}</span>
-      </div>
-    ),
-  },
-  {
-    accessorKey: "id",
-    header: "Asset ID",
-    cell: ({ row }) => (
-      <div className="capitalize whitespace-nowrap">{row.getValue("id")}</div>
-    ),
-  },
-  {
-    accessorKey: "category",
-    header: "Category",
-    cell: ({ row }) => (
-      <div className="capitalize whitespace-nowrap">
-        {row.getValue("category")}
-      </div>
-    ),
-  },
-  {
-    accessorKey: "site",
-    header: "Site",
-    cell: ({ row }) => (
-      <div className="capitalize whitespace-nowrap">{row.getValue("site")}</div>
-    ),
-  },
-  {
-    accessorKey: "area",
-    header: "Area",
-    cell: ({ row }) => (
-      <div className="capitalize whitespace-nowrap">{row.getValue("area")}</div>
-    ),
-  },
-  {
-    accessorKey: "assignTo",
-    header: ({ column }) => {
-      return (
-        // <Button
-        //   variant="ghost"
-        //   onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        // >
-        //   Email
-        //   <CaretSortIcon className="ml-2 h-4 w-4" />
-        // </Button>
-        <>Assign To</>
-      );
-    },
-    cell: ({ row }) => (
-      <div className="lowercase whitespace-nowrap">
-        {row.getValue("assignTo")}
-      </div>
-    ),
-  },
-  {
-    accessorKey: "status",
-    header: ({ column }) => {
-      return (
-        // <Button
-        //   variant="ghost"
-        //   onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        // >
-        //   Email
-        //   <CaretSortIcon className="ml-2 h-4 w-4" />
-        // </Button>
-        <>Status</>
-      );
-    },
-    cell: ({ row }) => (
-      <div className="font-medium whitespace-nowrap flex  cursor-pointer">
-        <div
-          className={`${
-            row.original.status === "Available"
-              ? "bg-green-100 text-[#017B5F]"
-              : "bg-[#FFEFE1] text-orange-500-value"
-          }  text-center rounded-[20px] py-[1px] px-4 capitalize text-[12px] max-w-fit`}
-        >
-          {row.getValue("status")}
-        </div>
-      </div>
-    ),
-  },
-  //   {
-  //     accessorKey: "status",
-  //     header: () => <div className="text-right">Status</div>,
-  //     cell: ({ row }) => {
-  //       const amount = parseFloat(row.getValue("status"));
-
-  //       // Format the amount as a dollar amount
-  //       const formatted = new Intl.NumberFormat("en-US", {
-  //         style: "currency",
-  //         currency: "USD",
-  //       }).format(amount);
-
-  //       return <div className="text-right font-medium">{formatted}</div>;
-  //     },
-  //   },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original;
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <div>
-              <MenuDots className="h-4 w-4" />
-            </div>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            align="end"
-            className="!bg-white-value !text-black-value  !ring-0 !border-0"
-          >
-            {/* <DropdownMenuLabel>Actions</DropdownMenuLabel> */}
-            {/* <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator /> */}
-            <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
-              View Details
-            </DropdownMenuItem>
-            <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
-              Edit
-            </DropdownMenuItem>
-            <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
-              Archive
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
-  },
-];
 const tabs = [
   { id: 1, name: "Team Members", href: "#", current: true },
   { id: 2, name: "Vendors", href: "#", current: false },
@@ -233,9 +78,202 @@ const ResourceListing = () => {
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState(tabs[0].id);
+  const navigate = useNavigate();
+  const columns: ColumnDef<any>[] = [
+    // {
+    //   id: "select",
+    //   header: ({ table }) => (
+    //     <Checkbox
+    //       checked={
+    //         table.getIsAllPageRowsSelected() ||
+    //         (table.getIsSomePageRowsSelected() && "indeterminate")
+    //       }
+    //       onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+    //       aria-label="Select all"
+    //     />
+    //   ),
+    //   cell: ({ row }) => (
+    //     <Checkbox
+    //       checked={row.getIsSelected()}
+    //       onCheckedChange={(value) => row.toggleSelected(!!value)}
+    //       aria-label="Select row"
+    //     />
+    //   ),
+    //   enableSorting: false,
+    //   enableHiding: false,
+    // },
+    {
+      accessorKey: "name",
+      header: "Employee Name",
+      cell: ({ row }) => (
+        <div className="capitalize flex items-center gap-3 flex-wrap">
+          {" "}
+          <img src={row.original.image} />
+          <span className="whitespace-nowrap">{row.getValue("name")}</span>
+        </div>
+      ),
+    },
+    {
+      accessorKey: "id",
+      header: "Employee ID",
+      cell: ({ row }) => (
+        <div className="capitalize whitespace-nowrap">{row.getValue("id")}</div>
+      ),
+    },
+    {
+      accessorKey: "email",
+      header: "Email",
+      cell: ({ row }) => (
+        <div className="capitalize whitespace-nowrap">
+          {row.getValue("email")}
+        </div>
+      ),
+    },
+    {
+      accessorKey: "role",
+      header: "Role",
+      cell: ({ row }) => (
+        <div className="capitalize whitespace-nowrap">
+          {row.getValue("role")}
+        </div>
+      ),
+    },
+    {
+      accessorKey: "area",
+      header: "Area",
+      cell: ({ row }) => (
+        <div className="capitalize whitespace-nowrap">
+          {row.getValue("area")}
+        </div>
+      ),
+    },
+    {
+      accessorKey: "assignTo",
+      header: ({ column }) => {
+        return (
+          // <Button
+          //   variant="ghost"
+          //   onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          // >
+          //   Email
+          //   <CaretSortIcon className="ml-2 h-4 w-4" />
+          // </Button>
+          <>Assign To</>
+        );
+      },
+      cell: ({ row }) => (
+        <div className="lowercase whitespace-nowrap">
+          {row.getValue("assignTo")}
+        </div>
+      ),
+    },
+    {
+      accessorKey: "status",
+      header: ({ column }) => {
+        return (
+          // <Button
+          //   variant="ghost"
+          //   onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          // >
+          //   Email
+          //   <CaretSortIcon className="ml-2 h-4 w-4" />
+          // </Button>
+          <>Status</>
+        );
+      },
+      cell: ({ row }) => (
+        <div className="font-medium whitespace-nowrap flex  cursor-pointer">
+          <div
+            className={`${
+              row.original.status === "Available"
+                ? "bg-green-100 text-[#017B5F]"
+                : "bg-[#FFEFE1] text-orange-500-value"
+            }  text-center rounded-[20px] py-[1px] px-4 capitalize text-[12px] max-w-fit`}
+          >
+            {row.getValue("status")}
+          </div>
+        </div>
+      ),
+    },
+    //   {
+    //     accessorKey: "status",
+    //     header: () => <div className="text-right">Status</div>,
+    //     cell: ({ row }) => {
+    //       const amount = parseFloat(row.getValue("status"));
+
+    //       // Format the amount as a dollar amount
+    //       const formatted = new Intl.NumberFormat("en-US", {
+    //         style: "currency",
+    //         currency: "USD",
+    //       }).format(amount);
+
+    //       return <div className="text-right font-medium">{formatted}</div>;
+    //     },
+    //   },
+    {
+      id: "actions",
+      enableHiding: false,
+      cell: ({ row }) => {
+        const payment = row.original;
+
+        return (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <div>
+                <MenuDots className="h-4 w-4" />
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="end"
+              className="!bg-white-value !text-black-value  !ring-0 !border-0"
+            >
+              {/* <DropdownMenuLabel>Actions</DropdownMenuLabel> */}
+              {/* <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(payment.id)}
+            >
+              Copy payment ID
+            </DropdownMenuItem>
+            <DropdownMenuSeparator /> */}
+              <DropdownMenuItem
+                className="hover:!bg-grey-100-value p-5 hover:!text-black-value"
+                onClick={handleClickDetails}
+              >
+                View Details
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="hover:!bg-grey-100-value p-5 hover:!text-black-value"
+                onClick={handleEdit}
+              >
+                Edit
+              </DropdownMenuItem>
+              <DropdownMenuItem className="hover:!bg-grey-100-value p-5 hover:!text-black-value">
+                Archive
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        );
+      },
+    },
+  ];
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
+
+  const handleEdit = () => {
+    if (selectedTab === 1) {
+      navigate(ADD_TEAM_MEMBERS);
+    } else {
+      navigate(ADD_VENDER);
+    }
+  };
+  const handleClickDetails = () => {
+    if (selectedTab === 1) {
+      navigate(RESOURCE_DETAILS);
+    } else {
+      navigate(VENDER_DETAILS);
+    }
+  };
+
   return (
     <>
       <Drawer open={open} setOpen={setOpen} />
@@ -364,11 +402,15 @@ const ResourceListing = () => {
           </div>
 
           <div className="px-6">
-            <DataTable columns={columns} data={data} />
+            <DataTable columns={columns} data={data} handleEdit={handleEdit} />
           </div>
         </div>
       </div>
-      <UserInviteModal open={modalOpen} setOpen={setModalOpen} />
+      <UserInviteModal
+        open={modalOpen}
+        setOpen={setModalOpen}
+        selectedTab={selectedTab}
+      />
     </>
   );
 };

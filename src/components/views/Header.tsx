@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ASSETLISTING } from "src/constants";
+import { ASSETLISTING, RESOURCE_LISTING } from "src/constants";
 import { Bars2Icon, XMarkIcon } from "@heroicons/react/20/solid";
 
 // import { ArrowRightIcon } from "../../assets/svg";
@@ -22,17 +22,16 @@ import { Bars2Icon, XMarkIcon } from "@heroicons/react/20/solid";
 const menuItems = [
   { id: 1, title: "Dashboard", href: "#solutions" },
   { id: 2, title: "Assets", href: ASSETLISTING },
-  { id: 3, title: "Maintenance", href: "#industries" },
+  { id: 3, title: "Maintenance", href: "" },
   { id: 4, title: "Site Overview", href: "#eds" },
-  { id: 4, title: "Resource Oversight", href: "#eds" },
-  { id: 4, title: "Purchase Orders", href: "#eds" },
-  { id: 4, title: "Reports", href: "#eds" },
+  { id: 5, title: "Resource Oversight", href: RESOURCE_LISTING },
+  { id: 6, title: "Purchase Orders", href: "#eds" },
+  { id: 7, title: "Reports", href: "#eds" },
 ];
 
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
   return (
     <Disclosure
       as="nav"
@@ -45,21 +44,28 @@ const Header = () => {
           </div>
           <div className="flex">
             <div className="hidden md:gap-2 md:flex ">
-              {menuItems.map((item) => (
-                <a
-                  onClick={() => {
-                    navigate(item.href);
-                  }}
-                  key={item.id}
-                  className={`inline-flex items-center p-3 text-1 font-normal  text-gray-500  border-b-2 border-transparent hover:bg-primary-value hover:text-white-value rounded-lg transition-all duration-300 cursor-pointer ${
-                    location.pathname.includes("assets") &&
-                    item.title == "Assets" &&
-                    "!bg-primary-value text-white-value"
-                  }`}
-                >
-                  {item.title}
-                </a>
-              ))}
+              {menuItems.map((item) => {
+                console.log(item);
+                return (
+                  <a
+                    onClick={() => {
+                      navigate(item.href);
+                    }}
+                    key={item.id}
+                    className={`inline-flex items-center p-3 text-1 font-normal  text-gray-500  border-b-2 border-transparent hover:bg-primary-value hover:text-white-value rounded-lg transition-all duration-300 cursor-pointer ${
+                      location.pathname.includes("assets") &&
+                      item.title == "Assets" &&
+                      "!bg-primary-value text-white-value"
+                    }  ${
+                      location.pathname.includes("resource") &&
+                      item.title == "Resource Oversight" &&
+                      "!bg-primary-value text-white-value"
+                    }`}
+                  >
+                    {item.title}
+                  </a>
+                );
+              })}
             </div>
           </div>
 

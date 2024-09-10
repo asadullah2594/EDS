@@ -6,6 +6,7 @@ import AssetsListing from "src/components/views/AssetsListing";
 import CreateNewSite from "src/components/views/CreateNewSite";
 import ResourceListing from "src/components/views/ResourceListing";
 import SignUp from "src/components/views/SignUp";
+import TeamMemberDetails from "src/components/views/TeamMemberDetails";
 import VendorCard from "src/components/views/VendorCard";
 import {
   ADD_TEAM_MEMBERS,
@@ -13,6 +14,7 @@ import {
   ASSET_DETAILS,
   ASSETLISTING,
   CREATE_NEW_SITE,
+  RESOURCE_DETAILS,
   RESOURCE_LISTING,
   VENDER_DETAILS,
 } from "src/constants";
@@ -88,6 +90,13 @@ export const Routes: Array<IRoute> = [
     path: RESOURCE_LISTING,
     enabled: true,
     component: ResourceListing,
+  },
+  {
+    key: "home-route",
+    title: "Asset Details",
+    path: RESOURCE_DETAILS,
+    enabled: true,
+    component: TeamMemberDetails,
   },
 
   // {

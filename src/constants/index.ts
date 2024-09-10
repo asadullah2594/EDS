@@ -8,3 +8,4 @@ export const ADD_TEAM_MEMBERS = "/resource/create";
 export const ADD_VENDER = "/resource/create/vendor";
 export const VENDER_DETAILS = "/resource/vendor/detail";
 export const RESOURCE_LISTING = "/resource/listing";
+export const RESOURCE_DETAILS = "/resource/details";

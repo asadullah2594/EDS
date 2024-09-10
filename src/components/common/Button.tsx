@@ -9,6 +9,7 @@ interface ButtonProps {
   bg?: string;
   className?: string;
   disabled?: boolean;
+  type?: "submit" | "reset" | "button";
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   bg,
   className,
   disabled,
+  type,
 }) => {
   const baseStyle =
     "px-5 py-3 max-h-[3rem] rounded-lg flex items-center  font-medium leading-4";
@@ -34,6 +36,7 @@ const Button: React.FC<ButtonProps> = ({
       className={`${baseStyle} ${variantStyle} ${className}`}
       onClick={onClick}
       disabled={disabled}
+      type={type}
     >
       {iconPosition === "start" && icon && <span className="mr-3">{icon}</span>}
       {children}

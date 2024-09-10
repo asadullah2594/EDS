@@ -3,21 +3,19 @@ import {
   CalenderIcon,
   EditIcon,
   Latter,
-  Listing,
   LoadingIcon,
-  MenuDots,
   PathIcon,
   Phone,
+  PinIcon,
   PlusIcon,
-  QRIcon,
   RoleIcon,
 } from "../../assets/svg";
 import Button from "../common/Button";
 import ProductImage from "../../assets/userImage.png";
-import PlaceHolderImage from "../../assets/placeholderImage.png";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import { ChevronDown, PinIcon, Plus } from "lucide-react";
+import PlaceHolderImage from "../../assets/placeholderImage.png";
+import { ChevronDown, ChevronRight, Plus } from "lucide-react";
 import Avatar from "../../assets/avatar.png";
 import {
   Accordion,
@@ -25,96 +23,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
+import { ArrowDownIcon } from "@heroicons/react/20/solid";
 import nameFrame from "../../assets/name_frame.png";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { ColumnDef } from "@tanstack/react-table";
-import { DataTable } from "./DataTable";
 
-const tabs = [
-  { name: "Details", href: "#", current: false },
-  { name: "Work History", href: "#", current: false },
-  { name: "Vendor details", href: "#", current: true },
-  { name: "Life Cycle", href: "#", current: false },
-  { name: "Archived Requests", href: "#", current: false },
-];
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-const data: any[] = [
-  {
-    id: "m5gr84i9",
-    name: `Larry Roin`,
-    email: "Miles.Esther@example.com",
-    role: "Human Resource Manager",
-    phone: "+1 234 567 890",
-  },
-  {
-    id: "m5gr84",
-    name: `Floyd Miles`,
-    email: "Miles.Esther@example.com",
-    role: "Human Resource Manager",
-    phone: "+1 234 567 890",
-  },
-  {
-    id: "m5gr849",
-    name: `Brooklyn Simmons`,
-    email: "Miles.Esther@example.com",
-    role: "Human Resource Manager",
-    phone: "+1 234 567 890",
-  },
-  {
-    id: "m5gr4i9",
-    name: `Kristin Watson`,
-    email: "Miles.Esther@example.com",
-    role: "Human Resource Manager",
-    phone: "+1 234 567 890",
-  },
-];
-
-export const columns: ColumnDef<any>[] = [
-  {
-    accessorKey: "name",
-    header: "Name",
-    cell: ({ row }) => (
-      <div className="capitalize flex items-center gap-3 flex-wrap py-4">
-        {" "}
-        <img src={row.original.image} />
-        <span className="whitespace-nowrap">{row.getValue("name")}</span>
-      </div>
-    ),
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
-    cell: ({ row }) => (
-      <div className="capitalize whitespace-nowrap">
-        {row.getValue("email")}
-      </div>
-    ),
-  },
-  {
-    accessorKey: "phone",
-    header: "Phone Number",
-    cell: ({ row }) => (
-      <div className="capitalize whitespace-nowrap">
-        {row.getValue("phone")}
-      </div>
-    ),
-  },
-  {
-    accessorKey: "role",
-    header: "Role",
-    cell: ({ row }) => (
-      <div className="capitalize whitespace-nowrap">{row.getValue("role")}</div>
-    ),
-  },
-];
-const VendorCard = () => {
+const TeamMemberDetails = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -123,9 +35,9 @@ const VendorCard = () => {
           <div className="flex justify-between items-center">
             <div>
               <div className="text-grey-600-value font-light text-1">
-                Resource Oversight
+                Resource Oversight&nbsp; {">"}&nbsp;Team Management
               </div>
-              <div className="text-5 font-normal ">Vendor Card</div>
+              <div className="text-5 font-normal ">Team Member Card</div>
             </div>
             <div className="flex items-center gap-3 justify-center">
               <Button
@@ -138,7 +50,7 @@ const VendorCard = () => {
                 </div>
                 &nbsp; Edit
               </Button>
-              <Button
+              {/* <Button
                 variant="default"
                 className="flex justify-center items-center gap-2 p-2.5 self-stretch rounded-lg bg-primary-value  !font-sans font-inter-3 text-2 boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)' text-white-value hover:opacity-75 "
               >
@@ -147,13 +59,13 @@ const VendorCard = () => {
                   <PlusIcon />
                 </div>
                 &nbsp; Create New PO
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
         <hr></hr>
         <div className="h-[calc(100vh-166px)] overflow-auto">
-          <div className="grid grid-cols-3 gap-2 ">
+          <div className="grid grid-cols-2 gap-2 ">
             <div className="col-span-2 px-6 py-4">
               <div className="bg-white-value p-4 flex gap-4 rounded-lg">
                 <div>
@@ -162,10 +74,10 @@ const VendorCard = () => {
                 <div className="flex flex-col w-full">
                   <div className="text-3 font-semibold mb-1 flex items-center gap-2">
                     Larry Roin{" "}
-                    {/* <div className=" bg-[#0198751A] text-[#019875] text-1 px-2 py-1 rounded-xl font-light flex items-center gap-1 w-fit">
+                    <div className=" bg-[#0198751A] text-[#019875] text-1 px-2 py-1 rounded-xl font-light flex items-center gap-1 w-fit">
                       <span className="h-1 w-1 rounded-full bg-[#019875] flex items-center "></span>
                       Working
-                    </div> */}
+                    </div>
                   </div>
                   <div className="px-3 py-1 bg-bluee-50-value text-grey-600-value w-fit rounded-lg text-1 font-semibold border border-[#EAEDEF]">
                     ADR-3245
@@ -226,7 +138,7 @@ const VendorCard = () => {
                       " data-[state=active]:!bg-primary-value data-[state=active]:!text-white-value data-[state=active]:!py-2 rounded-3xl border-transparent text-gray-500  hover:bg-primary-value hover:text-white-value whitespace-nowrap border-b-2 !px-4 !py-2 text-sm font-medium"
                     }
                   >
-                    Vendor Profiles
+                    Work Orders
                   </TabsTrigger>
                   <TabsTrigger
                     value="aa"
@@ -339,10 +251,200 @@ const VendorCard = () => {
                   </div>
                 </TabsContent>
                 <TabsContent value="work" className="rounded-lg">
-                  <div className="bg-white-value px-4 py-6 rounded-lg">
+                  <div className="bg-white-value px-4 py-6  border-b ">
                     <div className="text-3 font-semibold mb-4">Members</div>
-                    <div className="w-full flex items-center justify-between gap-4">
-                      <DataTable columns={columns} data={data} />
+                    <div className="flex justify-between items-center">
+                      <div className="text-2 font-semibold">
+                        Annual DOT Bus Inspection
+                      </div>
+                      <div>
+                        <ArrowButton />
+                      </div>
+                    </div>
+                    <div className="px-3 py-1 bg-bluee-50-value text-grey-600-value w-fit rounded-lg text-0 font-semibold border border-[#EAEDEF]">
+                      WOR-3004
+                    </div>
+                    <div className="text-0 font-normal mt-4 mb-4">
+                      System screen is not working and the device is overheating
+                      at that moment speakers are not working this are not
+                      audible on this device
+                    </div>
+                    <Accordion
+                      type="single"
+                      collapsible
+                      className="w-full bottom-0"
+                    >
+                      <AccordionItem value="item-1" className="border-0">
+                        <AccordionTrigger className="bg-bluee-50-value p-2 border-0 hover:no-underline rounded-lg [&[data-state=open]>div>div>svg]:rotate-180">
+                          <div className="flex justify-between items-center w-full">
+                            <div className="text-[#414C5C] text-1 font-medium flex gap-2 items-center ">
+                              <div>
+                                <PathIcon />
+                              </div>
+                              4140 Parker Rd. Allentown, New Mexico 31134
+                            </div>
+                            <div>
+                              <ChevronDown className="text-grey-400-value transition-transform duration-300 " />
+                            </div>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="border-0">
+                          <div className="w-full  bg-bluee-50-value px-2 pb-2 rounded-lg">
+                            <div>
+                              <div className="text-1 font-normal text-grey-400-value">
+                                Primary Area:
+                              </div>
+                              <div className="text-1 font-medium">
+                                Science wing
+                              </div>
+                            </div>
+                            <div>
+                              <div className="text-1 font-normal text-grey-400-value">
+                                Primary Area:
+                              </div>
+                              <div className="text-1 font-medium">
+                                Science wing
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                    <div className="flex gap-[200px] items-center mt-4">
+                      <div>
+                        <div className="text-grey-500-value text-1 flex items-center gap-1">
+                          <LoadingIcon /> Status
+                        </div>{" "}
+                        <div
+                          className={`${"bg-[#EEFFFA] text-[#017B5F]"}  text-center rounded-[20px] py-[2px] px-4 capitalize text-[12px] max-w-fit mt-1.5`}
+                        >
+                          Completed
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="text-grey-500-value text-1 flex items-center gap-1">
+                          <PinIcon /> Type
+                        </div>
+                        <div className="font-light mt-1.5">Maintenance </div>
+                      </div>
+
+                      <div>
+                        <div className="text-grey-500-value text-1 flex items-center gap-1">
+                          <CalenderIcon /> Date Created
+                        </div>
+                        <div className="font-light mt-1.5">
+                          March 16th, 2024{" "}
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="text-grey-500-value text-1 flex items-center gap-1">
+                          <RoleIcon /> Completed by
+                        </div>
+                        <div className="font-light mt-1.5 flex items-center gap-2">
+                          <img src={nameFrame} width={"18px"} />
+                          Jimmy Carter{" "}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white-value px-4 py-6 rounded-lg border-b ">
+                    <div className="text-3 font-semibold mb-4">Members</div>
+                    <div className="flex justify-between items-center">
+                      <div className="text-2 font-semibold">
+                        Annual DOT Bus Inspection
+                      </div>
+                      <div>
+                        <ArrowButton />
+                      </div>
+                    </div>
+                    <div className="px-3 py-1 bg-bluee-50-value text-grey-600-value w-fit rounded-lg text-0 font-semibold border border-[#EAEDEF]">
+                      WOR-3004
+                    </div>
+                    <div className="text-0 font-normal mt-4 mb-4">
+                      System screen is not working and the device is overheating
+                      at that moment speakers are not working this are not
+                      audible on this device
+                    </div>
+                    <Accordion
+                      type="single"
+                      collapsible
+                      className="w-full bottom-0"
+                    >
+                      <AccordionItem value="item-1" className="border-0">
+                        <AccordionTrigger className="bg-bluee-50-value p-2 border-0 hover:no-underline rounded-lg [&[data-state=open]>div>div>svg]:rotate-180">
+                          <div className="flex justify-between items-center w-full">
+                            <div className="text-[#414C5C] text-1 font-medium flex gap-2 items-center ">
+                              <div>
+                                <PathIcon />
+                              </div>
+                              4140 Parker Rd. Allentown, New Mexico 31134
+                            </div>
+                            <div>
+                              <ChevronDown className="text-grey-400-value transition-transform duration-300 " />
+                            </div>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="border-0">
+                          <div className="w-full  bg-bluee-50-value px-2 pb-2 rounded-lg">
+                            <div>
+                              <div className="text-1 font-normal text-grey-400-value">
+                                Primary Area:
+                              </div>
+                              <div className="text-1 font-medium">
+                                Science wing
+                              </div>
+                            </div>
+                            <div>
+                              <div className="text-1 font-normal text-grey-400-value">
+                                Primary Area:
+                              </div>
+                              <div className="text-1 font-medium">
+                                Science wing
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                    <div className="flex gap-[200px] items-center mt-4">
+                      <div>
+                        <div className="text-grey-500-value text-1 flex items-center gap-1">
+                          <LoadingIcon /> Status
+                        </div>{" "}
+                        <div
+                          className={`${"bg-[#EEFFFA] text-[#017B5F]"}  text-center rounded-[20px] py-[2px] px-4 capitalize text-[12px] max-w-fit mt-1.5`}
+                        >
+                          Completed
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="text-grey-500-value text-1 flex items-center gap-1">
+                          <PinIcon /> Type
+                        </div>
+                        <div className="font-light mt-1.5">Maintenance </div>
+                      </div>
+
+                      <div>
+                        <div className="text-grey-500-value text-1 flex items-center gap-1">
+                          <CalenderIcon /> Date Created
+                        </div>
+                        <div className="font-light mt-1.5">
+                          March 16th, 2024{" "}
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="text-grey-500-value text-1 flex items-center gap-1">
+                          <RoleIcon /> Completed by
+                        </div>
+                        <div className="font-light mt-1.5 flex items-center gap-2">
+                          <img src={nameFrame} width={"18px"} />
+                          Jimmy Carter{" "}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </TabsContent>
@@ -385,106 +487,6 @@ const VendorCard = () => {
                 </TabsContent>
               </Tabs>
             </div>
-            <div className="pr-6 py-4 ">
-              <div className=" p-4 bg-white-value rounded-lg  mb-6">
-                <div className="flex justify-between items-center w-full pb-2 border-b-2 border-b-[#E7E8EA] mb-4">
-                  <div>Linked Assets</div>
-                  <div>
-                    <Plus size={20} color="#5C6B82" />
-                  </div>
-                </div>
-                <div className="flex w-full justify-between items-center py-4 border-b border-b-[#EFF0F3]">
-                  <div className="flex items-center gap-4">
-                    <div>
-                      <img src={PlaceHolderImage} />
-                    </div>
-                    <div>
-                      <div className="text-2 font-semibold mb-1 flex items-center gap-2 ">
-                        Mac Book Pro 2024{" "}
-                      </div>
-                      <div className="px-3 py-1 bg-bluee-50-value text-grey-600-value w-fit rounded-lg text-1 font-semibold border border-[#EAEDEF]">
-                        ED-LPT-3421
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <ArrowButton />
-                  </div>
-                </div>
-                <div className="flex w-full justify-between items-center py-4 border-b border-b-[#EFF0F3]">
-                  <div className="flex items-center gap-4">
-                    <div>
-                      <img src={PlaceHolderImage} />
-                    </div>
-                    <div>
-                      <div className="text-2 font-semibold mb-1 flex items-center gap-2 ">
-                        Mac Book Pro 2024{" "}
-                      </div>
-                      <div className="px-3 py-1 bg-bluee-50-value text-grey-600-value w-fit rounded-lg text-1 font-semibold border border-[#EAEDEF]">
-                        ED-LPT-3421
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <ArrowButton />
-                  </div>
-                </div>
-                <div className="flex w-full justify-between items-center py-4 ">
-                  <div className="flex items-center gap-4">
-                    <div>
-                      <img src={PlaceHolderImage} />
-                    </div>
-                    <div>
-                      <div className="text-2 font-semibold mb-1 flex items-center gap-2 ">
-                        Mac Book Pro 2024{" "}
-                      </div>
-                      <div className="px-3 py-1 bg-bluee-50-value text-grey-600-value w-fit rounded-lg text-1 font-semibold border border-[#EAEDEF]">
-                        ED-LPT-3421
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <ArrowButton />
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center py-4 text-1 font-medium text-grey-500-value ">
-                  View All
-                </div>
-              </div>
-              <div className=" p-4 bg-white-value rounded-lg  mb-6">
-                <div className="flex justify-between items-center w-full pb-2 border-b-2 border-b-[#E7E8EA] mb-4">
-                  <div>Notes & Attachments</div>
-                  <div>
-                    <Plus size={20} color="#5C6B82" />
-                  </div>
-                </div>
-                <div className="bg-grey-50-value rounded-2xl mb-3">
-                  <div className="flex gap-2 items-center px-3 pt-3 pb-2">
-                    <div>
-                      <img src={Avatar} />
-                    </div>
-                    <div>
-                      <div className="font-medium">Larry Roin</div>
-                      <div className="text-0 text-[#7D899B] font-norma ">
-                        March 16th, 2024- 10:15 am
-                      </div>
-                    </div>
-                  </div>
-                  <div className=" text-[#546176] text-0 px-3 pt-2 pb-2">
-                    The screen appears to have a minor crack and could
-                    potentially sustain further damage from even slight impacts.
-                    It's crucial to address this issue before it worsens and
-                    renders the screen completely unusable.
-                  </div>
-                  <div className="px-3 pt-1 pb-3">
-                    <img src={ProductImage} />
-                  </div>
-                </div>
-                <div className="flex w-full justify-center items-center py-4 text-1 font-medium text-grey-500-value ">
-                  View All
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -492,4 +494,4 @@ const VendorCard = () => {
   );
 };
 
-export default VendorCard;
+export default TeamMemberDetails;

@@ -1,8 +1,8 @@
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import Button from "./Button";
-import { SearchIcon } from "src/assets/svg";
+import { SearchIcon, UploadIcon } from "src/assets/svg";
 
-const AddModal = ({ open, setOpen }) => {
+const AddModal = ({ open, setOpen, selectedTab }) => {
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10 ">
       <DialogBackdrop
@@ -18,78 +18,193 @@ const AddModal = ({ open, setOpen }) => {
           >
             <div className="px-6 pb-6 border-b ">
               <div className="r">
-                <p className="text-5 font-medium">Invite Team Member</p>
+                <p className="text-5 font-medium">
+                  {selectedTab === 1
+                    ? "Invite Team Member"
+                    : "Create New Vendor Profile"}
+                </p>
                 <p className="text-2 font-normal text-grey-400-value">
-                  Send invites via email to your team members to join your
-                  Emerald Workspace
+                  {selectedTab === 1
+                    ? "Send invites via email to your team members to join your Emerald Workspace"
+                    : "Add Details about Vendor Representative"}
                 </p>
               </div>
             </div>
             <div className="px-4 py-6">
-              {" "}
-              <div className="  mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
-                >
-                  Email
-                </label>
-                <div className=" ">
-                  <div className=" ">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="Larry Roin@gmail.com"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-value sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="  mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
-                >
-                  Privilege Level
-                </label>
-                <div className=" ">
-                  <div className=" ">
-                    <select
-                      id="location"
-                      name="location"
-                      defaultValue="Canada"
-                      className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              {selectedTab === 1 ? (
+                <>
+                  <div className="  mb-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
                     >
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
-                    </select>
+                      Email
+                    </label>
+                    <div className=" ">
+                      <div className=" ">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="Larry Roin@gmail.com"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-value sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="  mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
-                >
-                  Assign a Site
-                </label>
-                <div className=" ">
-                  <div className=" ">
-                    <select
-                      id="location"
-                      name="location"
-                      defaultValue="Canada"
-                      className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  <div className="  mb-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
                     >
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
-                    </select>
+                      Privilege Level
+                    </label>
+                    <div className=" ">
+                      <div className=" ">
+                        <select
+                          id="location"
+                          name="location"
+                          defaultValue="Canada"
+                          className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        >
+                          <option>United States</option>
+                          <option>Canada</option>
+                          <option>Mexico</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                  <div className="  mb-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
+                    >
+                      Assign a Site
+                    </label>
+                    <div className=" ">
+                      <div className=" ">
+                        <select
+                          id="location"
+                          name="location"
+                          defaultValue="Canada"
+                          className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        >
+                          <option>United States</option>
+                          <option>Canada</option>
+                          <option>Mexico</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="  mb-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
+                    >
+                      Name
+                    </label>
+                    <div className=" ">
+                      <div className=" ">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="Add Name"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-value sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="  mb-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
+                    >
+                      Email
+                    </label>
+                    <div className=" ">
+                      <div className=" ">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="Larry Roin@gmail.com"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-value sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="  mb-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
+                    >
+                      Phone Number
+                    </label>
+                    <div className=" ">
+                      <div className=" ">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="Add Phone Number"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-value sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="  mb-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-normal  text-gray-500 text-2 tracking-0 leading-5 "
+                    >
+                      Role
+                    </label>
+                    <div className=" ">
+                      <div className=" ">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="Add Role"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-value sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-span-full ">
+                    <div className=" flex justify-start items-center  rounded-lg border border-solid border-gray-600/25 px-6 py-3 gap-1.5 ">
+                      <UploadIcon />
+                      <div className="text-left">
+                        <div className=" flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="file-upload"
+                            className="relative cursor-pointer rounded-md bg-white  focus-within:outline-none  font-semibold  "
+                          >
+                            <span>Click to upload &nbsp; </span>
+                            <input
+                              id="file-upload"
+                              name="file-upload"
+                              type="file"
+                              className="sr-only"
+                              onChange={() => {}}
+                            />
+                          </label>
+                          <p className="pl-1 font-light text-gray-400 ">
+                            or drag and drop
+                          </p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-400">
+                          File size should be less then 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
             <div className="pt-6  w-full  flex justify-end px-6 border-t">
               <div className="flex justify-between items-center">

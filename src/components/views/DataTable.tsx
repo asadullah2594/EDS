@@ -26,7 +26,15 @@ import {
   ArrowLongRightIcon,
 } from "@heroicons/react/20/solid";
 
-export function DataTable({ columns, data }: { columns: any; data: any }) {
+export function DataTable({
+  columns,
+  data,
+  handleEdit,
+}: {
+  columns: any;
+  data: any;
+  handleEdit?: any;
+}) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []

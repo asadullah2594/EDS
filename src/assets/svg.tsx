@@ -597,3 +597,243 @@ export const UserPlus = ({ className }: { className?: any }) => {
     </svg>
   );
 };
+export const Phone = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M3.75 3H6.75L8.25 6.75L6.375 7.875C7.17822 9.50365 8.49635 10.8218 10.125 11.625L11.25 9.75L15 11.25V14.25C15 15.0784 14.3284 15.75 13.5 15.75C7.44574 15.3821 2.61792 10.5543 2.25 4.5C2.25 3.67157 2.92157 3 3.75 3"
+        stroke="#929CAB"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const Latter = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <rect
+        x="2.25"
+        y="3.75"
+        width="13.5"
+        height="10.5"
+        rx="1.6"
+        stroke="#929CAB"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M2.25 5.25L9 9.75L15.75 5.25"
+        stroke="#929CAB"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const RoleIcon = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <circle
+        cx="9"
+        cy="5.25"
+        r="3"
+        stroke="#929CAB"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M4.5 15.75V14.25C4.5 12.5931 5.84315 11.25 7.5 11.25H10.5C12.1569 11.25 13.5 12.5931 13.5 14.25V15.75"
+        stroke="#929CAB"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const LoadingIcon = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M7.0026 3.5V1.75"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M9.47656 4.52083L10.7307 3.26666"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M10.5 6.99998H12.25"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M9.47656 9.47919L10.7307 10.7334"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M7.0026 10.5V12.25"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M4.51979 9.47919L3.26562 10.7334"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M3.5 6.99998H1.75"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M4.51979 4.52083L3.26562 3.26666"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const PinIcon = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <circle
+        cx="4.95833"
+        cy="4.95833"
+        r="0.583333"
+        fill="#5C6B82"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M2.33594 4.08331V6.3344C2.33594 6.64765 2.46019 6.94806 2.68185 7.16973L7.41619 11.9041C7.63772 12.1256 7.9382 12.2501 8.25152 12.2501C8.56484 12.2501 8.86532 12.1256 9.08685 11.9041L11.9067 9.08423C12.1283 8.8627 12.2527 8.56221 12.2527 8.2489C12.2527 7.93558 12.1283 7.6351 11.9067 7.41356L7.17177 2.67923C6.95036 2.45785 6.65012 2.33343 6.33702 2.33331H4.08594C3.11944 2.33331 2.33594 3.11681 2.33594 4.08331Z"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const CalenderIcon = ({ className }: { className?: any }) => {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <rect
+        x="2.33594"
+        y="2.91669"
+        width="9.33333"
+        height="9.33333"
+        rx="1.6"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M9.33073 1.75V4.08333"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M4.66667 1.75V4.08333"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M2.33594 6.41667H11.6693"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M6.41406 8.74998H6.9974"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M7.0026 8.75V10.5"
+        stroke="#5C6B82"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};

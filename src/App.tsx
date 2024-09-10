@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         {appRoutes.map((route) => (
           <Route
