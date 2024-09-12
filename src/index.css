@@ -33,3 +33,9 @@ body {
   border-radius: 8px !important;
   background-color: #b4bbc6;
 }
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+}

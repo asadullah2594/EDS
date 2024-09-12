@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
   type,
 }) => {
   const baseStyle =
-    "px-5 py-3 max-h-[3rem] rounded-lg flex items-center  font-medium leading-4";
+    "px-5 py-3 max-h-[3rem] rounded-lg flex items-center  font-medium leading-4 disabled:!bg-gray-400";
 
   const variantStyle =
     variant === "default"

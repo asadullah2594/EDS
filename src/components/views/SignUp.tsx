@@ -1,40 +1,20 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import siteLogo from "../../assets/siteLogo.svg";
 import Button from "../common/Button";
+import { SiteLogo } from "src/assets/svg";
 
 // Define the validation schema with yup
-const schema = yup.object().shape({
-  email: yup
-    .string()
-    .email("Please enter a valid email address")
-    .required("Email is required"),
-});
 
-const SignUp = () => {
-  const [toggle, setToggle] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  // Submit function
-  const onSubmit = (data) => {
-    // Example submission function logic
-    console.log("Form submitted with data:", data);
-    setToggle(!toggle);
-  };
-
+const SignUp = ({
+  toggle,
+  onSubmit,
+  handleSubmit,
+  errors,
+  register,
+  setToggle,
+}) => {
   return (
     <div className="flex flex-col justify-between gap-[var(--spacing-10,40px)] bg-bluee-50-value h-[100vh] ">
       <div className="flex px-8 py-8">
-        <img src={siteLogo} alt="site-logo" />
+        <SiteLogo />
       </div>
 
       {!toggle ? (
@@ -113,9 +93,7 @@ const SignUp = () => {
             <Button
               variant="default"
               children="Resend the confirmation email"
-              onClick={() => {
-                setToggle(!toggle);
-              }}
+              onClick={handleSubmit(onSubmit)}
               className="flex !w-full justify-center items-center gap-2 px-[18px] py-[10px] self-stretch rounded-lg bg-primary-value mt-5  !font-sans font-inter-3 text-2 boxShadow: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)' text-white-value hover:opacity-75 "
             />
           </div>

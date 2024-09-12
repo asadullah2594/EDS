@@ -1,0 +1,15 @@
+export const SIGN_UP = "/api/tenants/signup-request/";
+export const VERIFY_TOKEN = "/api/tenants/verify-token/";
+export const CHECK_TENANT = "/api/tenants/check-tenant/";
+export const REGISTER_TENANT = "/api/tenants/register/";
+export const GET_INDUSTRIES = "/api/tenants/industries/";
+// export const GREVINCE = "/grievance/raise";
+// export const POST_GREVINCE = "/grievance/submit";
+// export const GREVINCE_LIST = "/grievance/list";
+// export const GREVINCE_DETAILS = "/grievance/details";
+// export const GET_HR = "/grievance/assignees";
+// export const POST_COMMENT = "/grievance/comment";
+// export const ASSIGN_TO_ME = "/grievance/assignedToMe";
+// export const RESOLVE_GREVANCE = "/grievance/action";
+// export const POST_GOAL_SETTINGS = '/pms/updateGoalStatus';
+// export const UPDATE_COMMENTS_SEEN = '/grievance/updateCommentSeen';

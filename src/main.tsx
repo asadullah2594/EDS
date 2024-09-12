@@ -17,16 +17,16 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <ErrorBoundary>
-          <PersistGate loading={null} persistor={persistor}>
-            <WrappedApp />
-          </PersistGate>
-        </ErrorBoundary>
-        <ToastContainer />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <PersistGate loading={null} persistor={persistor}>
+          <WrappedApp />
+        </PersistGate>
+      </ErrorBoundary>
+      <ToastContainer />
+    </BrowserRouter>
+  </Provider>
+  // </React.StrictMode>
 );

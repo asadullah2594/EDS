@@ -1,9 +1,13 @@
-import Header from "./components/views/Header";
+import { useDispatch, useSelector } from "react-redux";
 import NotFound from "./pages/NotFound";
 import { Routes as appRoutes } from "./Routes/Routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LottieLoader from "./loader/LottieLoader";
+import { setLoading } from "./redux/slices/userSlice";
 
 function App() {
+  // const dispatch = useDispatch();
+  // dispatch(setLoading(false));
   return (
     <>
       {/* <Header /> */}

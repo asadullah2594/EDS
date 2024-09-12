@@ -5,6 +5,7 @@ import AssetsDetails from "src/components/views/AssetDetails";
 import AssetsListing from "src/components/views/AssetsListing";
 import CreateNewSite from "src/components/views/CreateNewSite";
 import ResourceListing from "src/components/views/ResourceListing";
+import SetupProfile from "src/components/views/SetUpProfile/SetupProfile";
 import SignUp from "src/components/views/SignUp";
 import TeamMemberDetails from "src/components/views/TeamMemberDetails";
 import VendorCard from "src/components/views/VendorCard";
@@ -18,6 +19,8 @@ import {
   RESOURCE_LISTING,
   VENDER_DETAILS,
 } from "src/constants";
+import SetUpProfileContainer from "src/containers/SetUpProfileContainer";
+import SignUpContaier from "src/containers/SignUpContainer";
 
 export interface IRoute {
   key: string;
@@ -33,7 +36,14 @@ export const Routes: Array<IRoute> = [
     title: "SignUp",
     path: "/",
     enabled: true,
-    component: SignUp,
+    component: SignUpContaier,
+  },
+  {
+    key: "setup-profile",
+    title: "Setup Profile",
+    path: "/sign-up",
+    enabled: true,
+    component: SetUpProfileContainer,
   },
   {
     key: "home-route",
@@ -49,13 +59,7 @@ export const Routes: Array<IRoute> = [
     enabled: true,
     component: AssetsDetails,
   },
-  {
-    key: "home-route",
-    title: "Asset Details",
-    path: ASSET_DETAILS,
-    enabled: true,
-    component: AssetsDetails,
-  },
+
   {
     key: "home-route",
     title: "Asset Details",

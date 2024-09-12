@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { stat } from "fs";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -30,6 +31,18 @@ export const userSlice = createSlice({
       };
       // state.token = token;
     },
+    setToken: (state, action) => {
+      const { token, email } = action.payload;
+      console.log(token, email);
+      state.isAuthenticated = false;
+      state.token = token;
+      state.user = {
+        ...state.user,
+        email: email,
+      };
+      // state.token = token;
+    },
+
     logout: (state) => {
       state.isAuthenticated = false;
       state.user = {
