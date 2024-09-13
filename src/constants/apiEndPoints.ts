@@ -3,6 +3,7 @@ export const VERIFY_TOKEN = "/api/tenants/verify-token/";
 export const CHECK_TENANT = "/api/tenants/check-tenant/";
 export const REGISTER_TENANT = "/api/tenants/register/";
 export const GET_INDUSTRIES = "/api/tenants/industries/";
+export const LOGIN = "/api/users/login/";
 // export const GREVINCE = "/grievance/raise";
 // export const POST_GREVINCE = "/grievance/submit";
 // export const GREVINCE_LIST = "/grievance/list";

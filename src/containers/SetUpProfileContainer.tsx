@@ -153,11 +153,19 @@ const SetUpProfileContainer = () => {
     try {
       dispatch(setLoading(true));
       const res = await RegisterTenant(payload);
-      if (res.status === 200) {
+      if (res.status === 201) {
         dispatch(setLoading(false));
+        dispatch(userSlice.actions.login(res.data.data));
+        dispatch(
+          userSlice.actions.setToken({
+            token: "",
+            email: userEmail,
+          })
+        );
+        toastify("success", res.data.data.message);
+
         // setStep(2);
         // navigate(RESOURCE_LISTING);
-        console.log(res);
       }
     } catch (e) {
       console.log(e);

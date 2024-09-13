@@ -17,8 +17,10 @@ import {
   CREATE_NEW_SITE,
   RESOURCE_DETAILS,
   RESOURCE_LISTING,
+  ROUTE_LOGIN,
   VENDER_DETAILS,
 } from "src/constants";
+import LoginContainer from "src/containers/LoginContainer";
 import SetUpProfileContainer from "src/containers/SetUpProfileContainer";
 import SignUpContaier from "src/containers/SignUpContainer";
 
@@ -27,6 +29,7 @@ export interface IRoute {
   title: string;
   path: string;
   enabled: boolean;
+  protected: boolean;
   component: FC<{}>;
 }
 
@@ -37,6 +40,7 @@ export const Routes: Array<IRoute> = [
     path: "/",
     enabled: true,
     component: SignUpContaier,
+    protected: false,
   },
   {
     key: "setup-profile",
@@ -44,6 +48,7 @@ export const Routes: Array<IRoute> = [
     path: "/sign-up",
     enabled: true,
     component: SetUpProfileContainer,
+    protected: false,
   },
   {
     key: "home-route",
@@ -51,70 +56,64 @@ export const Routes: Array<IRoute> = [
     path: ASSETLISTING,
     enabled: true,
     component: AssetsListing,
+    protected: true,
   },
   {
     key: "home-route",
-    title: "Asset Details",
-    path: ASSET_DETAILS,
+    title: "Asset Listing",
+    path: ROUTE_LOGIN,
     enabled: true,
-    component: AssetsDetails,
+    component: LoginContainer,
+    protected: true,
   },
-
-  {
-    key: "home-route",
-    title: "Asset Details",
-    path: CREATE_NEW_SITE,
-    enabled: true,
-    component: CreateNewSite,
-  },
-  {
-    key: "home-route",
-    title: "Asset Details",
-    path: ADD_VENDER,
-    enabled: true,
-    component: AddNewVendor,
-  },
-  {
-    key: "home-route",
-    title: "Asset Details",
-    path: ADD_TEAM_MEMBERS,
-    enabled: true,
-    component: AddTeamMembers,
-  },
-  {
-    key: "home-route",
-    title: "Asset Details",
-    path: VENDER_DETAILS,
-    enabled: true,
-    component: VendorCard,
-  },
-  {
-    key: "home-route",
-    title: "Asset Details",
-    path: RESOURCE_LISTING,
-    enabled: true,
-    component: ResourceListing,
-  },
-  {
-    key: "home-route",
-    title: "Asset Details",
-    path: RESOURCE_DETAILS,
-    enabled: true,
-    component: TeamMemberDetails,
-  },
+  // {
+  //   key: "home-route",
+  //   title: "Asset Details",
+  //   path: ASSET_DETAILS,
+  //   enabled: true,
+  //   component: AssetsDetails,
+  // },
 
   // {
   //   key: "home-route",
-  //   title: "Home",
-  //   path: "/details",
+  //   title: "Asset Details",
+  //   path: CREATE_NEW_SITE,
   //   enabled: true,
-  //   component: GrevanceDetails,
+  //   component: CreateNewSite,
   // },
   // {
-  //     key: 'about-route',
-  //     title: 'About',
-  //     path: '/about',
-  //     enabled: true,
-  //     component: About
-  // }
+  //   key: "home-route",
+  //   title: "Asset Details",
+  //   path: ADD_VENDER,
+  //   enabled: true,
+  //   component: AddNewVendor,
+  // },
+  // {
+  //   key: "home-route",
+  //   title: "Asset Details",
+  //   path: ADD_TEAM_MEMBERS,
+  //   enabled: true,
+  //   component: AddTeamMembers,
+  // },
+  // {
+  //   key: "home-route",
+  //   title: "Asset Details",
+  //   path: VENDER_DETAILS,
+  //   enabled: true,
+  //   component: VendorCard,
+  // },
+  // {
+  //   key: "home-route",
+  //   title: "Asset Details",
+  //   path: RESOURCE_LISTING,
+  //   enabled: true,
+  //   component: ResourceListing,
+  // },
+  // {
+  //   key: "home-route",
+  //   title: "Asset Details",
+  //   path: RESOURCE_DETAILS,
+  //   enabled: true,
+  //   component: TeamMemberDetails,
+  // },
 ];

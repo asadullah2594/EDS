@@ -16,6 +16,7 @@ import axios from "src/axios/axios";
 import {
   CHECK_TENANT,
   GET_INDUSTRIES,
+  LOGIN,
   REGISTER_TENANT,
   SIGN_UP,
   VERIFY_TOKEN,
@@ -72,4 +73,7 @@ export const CheckTenant = (queryParams) => {
 };
 export const GetIndustriesService = () => {
   return axios.get(`${GET_INDUSTRIES}`);
+};
+export const LoginService = (tenant, payload) => {
+  return axios.post(`/${tenant}${LOGIN}`, payload);
 };

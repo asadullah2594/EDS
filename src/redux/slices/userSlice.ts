@@ -1,18 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { stat } from "fs";
 import { toast } from "react-toastify";
 
 const initialState = {
   isAuthenticated: false,
   user: {
     id: "",
-    user_name: "",
+    first_name: "",
     email: "",
-    isManager: "",
+    company_role: "",
+    last_name: "",
+    permissions: [],
+    role: "",
   },
   isLoading: false,
   token: "",
-  subscriptions: [],
+  accessToken: "",
+  refreshToken: "",
+  tenant: "",
 };
 
 export const userSlice = createSlice({
@@ -20,16 +24,12 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      const { id, user_name, managerFlag, email } = action.payload;
+      const { accessToken, refreshToken, tenant, user } = action.payload;
       state.isAuthenticated = true;
-      state.user = {
-        ...state.user,
-        id: id,
-        user_name: user_name,
-        isManager: managerFlag,
-        email: email,
-      };
-      // state.token = token;
+      state.accessToken = accessToken;
+      state.refreshToken = refreshToken;
+      state.tenant = tenant;
+      state.user = user;
     },
     setToken: (state, action) => {
       const { token, email } = action.payload;
@@ -43,31 +43,23 @@ export const userSlice = createSlice({
       // state.token = token;
     },
 
-    logout: (state) => {
-      state.isAuthenticated = false;
-      state.user = {
-        id: "",
-        user_name: "",
-        email: "",
-        isManager: "",
-      };
-      state.token = "";
-    },
+    // logout: (state) => {
+    //   state.isAuthenticated = false;
+    //   state.user = {
+    //     id: "",
+    //     user_name: "",
+    //     email: "",
+    //     isManager: "",
+    //   };
+    //   state.token = "";
+    // },
     setLoading: (state, action) => {
       state.isLoading = action.payload;
-    },
-    changeUserName: (state, action) => {
-      const { user_name } = action.payload;
-      state.user.user_name = user_name;
-    },
-    setSubscriptions: (state, action) => {
-      state.subscriptions = action.payload.subscriptions;
     },
   },
 });
 
-export const { login, logout, setLoading, changeUserName, setSubscriptions } =
-  userSlice.actions;
+export const { login, setLoading } = userSlice.actions;
 
 export const toastify = (type, toastMessage) => {
   switch (type) {
