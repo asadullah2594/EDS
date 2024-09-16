@@ -24,6 +24,9 @@ const AuthenticatedRoute = ({ component: Component }) => {
           await TenantCheck();
           return;
         }
+        if (segments[0] !== tenant) {
+          navigate("/404");
+        }
 
         navigate("/");
       } else {

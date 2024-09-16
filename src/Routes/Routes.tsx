@@ -21,6 +21,7 @@ import {
   VENDER_DETAILS,
 } from "src/constants";
 import LoginContainer from "src/containers/LoginContainer";
+import ResourceListingContainer from "src/containers/ResourceListingContainer";
 import SetUpProfileContainer from "src/containers/SetUpProfileContainer";
 import SignUpContaier from "src/containers/SignUpContainer";
 
@@ -49,6 +50,14 @@ export const Routes: Array<IRoute> = [
     enabled: true,
     component: SetUpProfileContainer,
     protected: false,
+  },
+  {
+    key: "home-route",
+    title: "Resource Details",
+    path: RESOURCE_LISTING,
+    enabled: true,
+    component: ResourceListingContainer,
+    protected: true,
   },
   {
     key: "home-route",
@@ -102,13 +111,7 @@ export const Routes: Array<IRoute> = [
   //   enabled: true,
   //   component: VendorCard,
   // },
-  // {
-  //   key: "home-route",
-  //   title: "Asset Details",
-  //   path: RESOURCE_LISTING,
-  //   enabled: true,
-  //   component: ResourceListing,
-  // },
+
   // {
   //   key: "home-route",
   //   title: "Asset Details",

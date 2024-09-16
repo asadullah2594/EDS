@@ -70,14 +70,9 @@ const data: any[] = [
   },
 ];
 
-const tabs = [
-  { id: 1, name: "Team Members", href: "#", current: true },
-  { id: 2, name: "Vendors", href: "#", current: false },
-];
-const ResourceListing = () => {
+const ResourceListing = ({ selectedTab, setSelectedTab, tabs }) => {
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedTab, setSelectedTab] = useState(tabs[0].id);
   const navigate = useNavigate();
   const columns: ColumnDef<any>[] = [
     // {
@@ -255,6 +250,7 @@ const ResourceListing = () => {
       },
     },
   ];
+
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }

@@ -2,13 +2,15 @@ import { useDispatch, useSelector } from "react-redux";
 import Login from "src/components/views/Login";
 import { setLoading, toastify, userSlice } from "src/redux/slices/userSlice";
 import { LoginService } from "src/services/services";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import LottieLoader from "src/loader/LottieLoader";
+import { RESOURCE_LISTING } from "src/constants";
 
 const LoginContainer = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const loading = useSelector((state: any) => state?.user?.isLoading);
+  const navigate = useNavigate();
 
   // Capture the path segments
   const segments = location.pathname.split("/").filter(Boolean);
@@ -20,6 +22,7 @@ const LoginContainer = () => {
       if (res.status === 200) {
         dispatch(setLoading(false));
         dispatch(userSlice.actions.login(res.data.data));
+        navigate(`/${segments[0]}${RESOURCE_LISTING}`);
       }
     } catch (e) {
       console.log(e);

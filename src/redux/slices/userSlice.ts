@@ -24,10 +24,10 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      const { accessToken, refreshToken, tenant, user } = action.payload;
+      const { access_token, refresh_token, tenant, user } = action.payload;
       state.isAuthenticated = true;
-      state.accessToken = accessToken;
-      state.refreshToken = refreshToken;
+      state.accessToken = access_token;
+      state.refreshToken = refresh_token;
       state.tenant = tenant;
       state.user = user;
     },

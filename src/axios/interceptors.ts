@@ -1,6 +1,11 @@
-import { AxiosError, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
-import { SERVER_URL } from '../constants';
-import store from 'src/redux/store';
+import {
+  AxiosError,
+  AxiosRequestConfig,
+  AxiosResponse,
+  InternalAxiosRequestConfig,
+} from "axios";
+import { SERVER_URL } from "../constants";
+import store from "src/redux/store";
 // import { GenerateToken, Logout } from 'src/services/dashboardServices';
 // import { GENERATE_TOKEN } from 'src/constants/apiRoutes';
 
@@ -15,8 +20,11 @@ export const requestHandler = (request: InternalAxiosRequestConfig) => {
   //     request.data['url'] = url;
   //   }
   // }
-  // request.headers.Authorization = store.getState().user.token;
-  // request.withCredentials = true;
+  console.log();
+  const token = "Bearer" + " " + store.getState().user.accessToken;
+  request.headers.Authorization = token;
+
+  request.withCredentials = true;
   request.baseURL = SERVER_URL;
 
   const url = request.baseURL + request.url!;

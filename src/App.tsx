@@ -11,6 +11,7 @@ import {
 import LottieLoader from "./loader/LottieLoader";
 import { setLoading } from "./redux/slices/userSlice";
 import AuthenticatedRoute from "./Routes/AuthenticatedRoutes";
+import Header from "./components/views/Header";
 
 function App() {
   // const dispatch = useDispatch();
@@ -22,10 +23,13 @@ function App() {
 
   // Capture the path segments
   const segments = location.pathname.split("/").filter(Boolean);
+  const isAuthenticated = useSelector(
+    (state: any) => state.user.isAuthenticated
+  );
   console.log(segments);
   return (
     <>
-      {/* <Header /> */}
+      {isAuthenticated && <Header />}
       <Routes>
         {appRoutes.map((route) => {
           console.log(
